@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <example_template:user="user"> </example_template>                    
+                                         
+
+  </div>
+
+<script type="text/javascript" src="example_template.vue"></script>
+<script type="text/javascript">
+    const app = Vue.createApp({
+      components:{
+        example_template
+      },
+      data:{
+        return {
+          user:{
+             name : "Ram ",
+             email: "test@test.de"
+          }
+        }
+      }
+ });
+       
+app.mount('#app')
+
+</script>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+</body>
+</html>
+
+<!--
+<template>
+    <Head title="Log in" />
+    <bernstein-layout>
+
+     
+    </bernstein-layout>
+</template>
+<script>
+    import BernsteinLayout from '@/Layouts/BernsteinLayout.vue'
+    import { Head  } from '@inertiajs/inertia-vue3'
+import { reactive } from '@vue/reactivity'
+//  import { reactive } from 'vue'
+ import { Inertia } from '@inertiajs/inertia'
+import { watchEffect } from '@vue/runtime-core'
+
+export default {
+    components:{
+        BernsteinLayout,
+        Head 
+    },
+        
+   props:{
+    'users': Array ,
+    'roles': Array  
+   },
+   setup(){
+       const form  =reactive({
+          name :  "",
+          email:  "",
+          action: ""  
+       })
+        function submit(event) {
+            const {name, email, action } = Object.fromEntries(new FormData(event.target));
+             form.name =name, 
+             form.email = email 
+             form.action = action 
+              Inertia.post('/user_roles', form)
+        }
+        // watchEffect(() => console.log("Value: " + form.vname))
+        return { form, submit }
+
+   },
+   
+   methods:{ 
+       addName ($event,$user){
+           this.form.name = parseInt($event.target.value);
+           console.log($event.target.value); 
+       }
+   } 
+
+}
+</script>
+<style scoped>
+ .roleRow{
+     @apply px-6 py-2 text-xs text-gray-500 border-b border-gray-200
+ }
+</style>
+-->
